@@ -10,6 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102233144) do
+ActiveRecord::Schema.define(version: 20171103015422) do
+
+  create_table "birds", force: :cascade do |t|
+    t.string "species"
+  end
+
+  create_table "sightings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bird_id"
+    t.string "location"
+    t.string "description"
+    t.string "datetime"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+  end
 
 end
