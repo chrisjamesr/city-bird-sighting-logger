@@ -1,1 +1,7 @@
 <h1>Look at all the Birds</h1>
+
+<ul>
+<% @birds.each do |bird| %>
+  <li><a href="/birds/<%=bird.id%>"><%=bird.species%></a></li>
+<% end %>
+</ul>
