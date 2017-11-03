@@ -4,6 +4,7 @@ class CreateSightings < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :bird_id
       t.string :location
+      t.string :time_date
       t.string :description
     end
   end
