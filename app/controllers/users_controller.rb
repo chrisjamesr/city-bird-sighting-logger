@@ -48,6 +48,10 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
 
+  get '/users/:id/edit' do
+    @user = User.find(params[:id])
+    erb :'/users/edit'
+  end  
 
 
 
