@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   end
 
    post '/login' do
-    binding.pry
     user = User.find_by(params[:user])
     if user.save
       session[:user_id] = user.id
@@ -40,14 +39,18 @@ class UsersController < ApplicationController
   end 
 
   get '/users' do
+    @users = User.all
     erb :'/users/index'
   end
 
   get '/users/:id' do
-    binding.pry
     @user = User.find(params[:id])
     erb :'/users/show'
   end
+
+
+
+
 
   get '/logout' do
     if logged_in?
