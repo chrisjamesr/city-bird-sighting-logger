@@ -1,1 +1,15 @@
-<h1>View All Users</h1>
+<h1>Community Members</h1>
+
+<% # add user.datetime for "Member Since ..."%>
+<% @users.each do |user| %>
+
+  <h3><%=user.username%></h3>
+  
+  User Sightings:
+  <ul>
+    <% user.sightings.each do |sighting| %>
+      <li><a href="/sightings/<%sighting.id%>"><%=sighting.location %><%# sighting.bird? %></a></li>
+      <% end %>
+  </ul>
+
+<% end %>
