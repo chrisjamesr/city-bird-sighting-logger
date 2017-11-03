@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
    post '/login' do
     user = User.find_by(params[:user])
-    if user.save
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/users/#{user.id}"
     else
@@ -48,11 +48,19 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
 
+  # unnecessary
   get '/users/:id/edit' do
     @user = User.find(params[:id])
-    erb :'/users/edit'
+    redirect "/users/#{@user.id}"
+    # erb :'/users/edit'
   end  
 
+  # patch '/users/:id/edit' do
+  #   user = User.find_by(username: user[:username])
+  #   if user && user.authenticate(params[:password])
+
+  #   redirect '/users'
+  # end  
 
 
 
