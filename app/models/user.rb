@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :sightings
   has_many :birds, through: :sightings
 
+  # add avatar to database
+  
   def slug 
     username.downcase.gsub(" ","-")
   end
