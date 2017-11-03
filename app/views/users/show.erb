@@ -1,0 +1,10 @@
+<h1><%= @user.username %></h1>
+
+<h3>Sightings Log</h3>
+
+<ul>
+  <% @user.sightings.each do |sighting| %>
+  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.datetime%> - <%=sighting.location %></a></li>
+  <% end %>
+
+</ul>
