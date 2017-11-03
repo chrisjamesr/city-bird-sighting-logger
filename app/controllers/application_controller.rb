@@ -11,8 +11,19 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "hello world"
+    erb :root
   end
 
+  
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
 
+    def current_user
+      User.find(session[:user_id])
+    end
+  end  #  End of Helpers
+
+  
 end
