@@ -1,6 +1,11 @@
 <h1><%=@bird.species %></h1>
 
 <h3>Sightings:</h3>
+<ul>
+<% @bird.sightings.each do |sighting| %>
+  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location; sighting.time_date%></a></li>
+  <% end %>
+</ul>
 
 
 <h3>Images:</h3>
