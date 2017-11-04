@@ -4,7 +4,13 @@
   <title>CityBird</title>
 </head>
 <body>
-<header><hr>HEADER<hr></header>
+<header><hr>
+  <% if logged_in? %>
+  Logged in as: <%= User.find(session[:user_id]).username %> 
+  <%else%>
+  <a href="/login">Login</a>
+  <% end %>
+  <hr></header>
 
       <%= yield %>
 
