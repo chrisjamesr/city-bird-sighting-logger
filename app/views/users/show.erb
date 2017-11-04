@@ -3,8 +3,8 @@
 <h3>Sightings Log</h3>
 
 <ul>
-  <% @user.sightings.each do |sighting| %>
-  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.datetime%> - <%=sighting.location %></a></li>
-  <% end %>
+  <% if @user.sightings; @user.sightings.each do |sighting| %>
+  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.time_date%> - <%=sighting.location %></a></li>
+  <% end; end %>
 
 </ul>

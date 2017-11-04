@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   end
 
    post '/login' do
-    user = User.find_by(params[:user])
+    user = User.find_by(username: params[:username])
+    binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/users/#{user.id}"
@@ -61,6 +62,10 @@ class UsersController < ApplicationController
 
   #   redirect '/users'
   # end  
+# set layout for view
+  # get "/foo" do
+  #  erb :index, :layout => :nameofyourlayoutfile
+  # end 
 
 
 
