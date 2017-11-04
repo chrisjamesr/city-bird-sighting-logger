@@ -9,6 +9,10 @@
       <%= yield %>
 
 
-<footer><hr>FOOTER <hr></footer>
+<footer><hr>FOOTER 
+<% if logged_in? %>
+  <a href="/logout"><button>Logout</button> </a>  
+  <% end %>
+  <hr></footer>
 </body>
 </html>
