@@ -6,13 +6,13 @@
   <% if !@user.sightings.empty?%> 
     <ul>
     <% @user.sightings.each do |sighting| %>
-    <li><a href="/sightings/<%=sighting.id%>"><%=sighting.time_date%> - <%=sighting.location %></a>
-        <a href="/birds/<%=sighting.bird.id%>">- <%=sighting.bird.species%></a>        
+    <li><a href="/sightings/<%=sighting.id%>"><%=sighting.time_date%> - <%=sighting.location %></a>  - 
+        <a href="/birds/<%=sighting.bird.id%>"><%=sighting.bird.species%></a>        
     </li>
     <% end %>
     </ul>
-
-  <% elsif @user == current_user %>
+  <% end %>  
+  <% if @user == current_user %>
     <%#  refactor as partial? %>
     <h3>Add a new Bird Sighting</h3>
     <form action='/sightings' method="POST">
@@ -26,8 +26,9 @@
     <input type="text" id="bird_species" name="bird[species]" required>
     </p>
     <p><label for="description">Description:</label>
-    <input type="text" id="description" name="sighting[description]" required>
-    </p>
+    <p>
+      <textarea name="sighting[description]" id="description" form="sighting_edit_form"></textarea>
+  </p>
     <input type="submit" value="Add Sighting">
   <% end %>
 
