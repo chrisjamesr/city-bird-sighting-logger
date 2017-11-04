@@ -8,8 +8,8 @@
   User Sightings:
   <ul>
     <% user.sightings.each do |sighting| %>
-      <li><a href="/sightings/<%sighting.id%>"><%=sighting.location %><%# sighting.bird? %></a></li>
-      <% end %>
+      <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.bird.species%></a></li>
+    <% end %>
   </ul>
 
 <% end %>
