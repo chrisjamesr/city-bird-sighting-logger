@@ -1,1 +1,11 @@
 <h1>Update a birds information</h1>
+
+<form action='/birds/<%=@bird.id%>' method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+  <p><label for="bird_species">Edit Species:</label>
+  <input type="text" name="bird[species]" value ="<%=@bird.species %>">
+  </p>
+  
+  <input type="submit" value="Edit Bird">
+
+</form>
