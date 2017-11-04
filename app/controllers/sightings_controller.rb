@@ -26,7 +26,7 @@ class SightingsController < ApplicationController
   get '/sightings/:id/edit' do
     @sighting = Sighting.find(params[:id])
     @user = User.find(session[:user_id])
-    if @sighting.user_id == @user.id
+    if current_user == @user
       erb :'/sightings/edit'
     else
       redirect "/sightings/#{@sighting.id}"
@@ -36,7 +36,14 @@ class SightingsController < ApplicationController
 
 
   patch '/sightings/:id' do
-    binding.pry
+      sighting = Sighting.find(params[:id])
+      sighting.update(params[:sighting])
+      sighting.bird = Bird.find_or_create_by(params[:bird])
+    if sighting.save
+      redirect "/sightings/#{sighting.id}"
+    else
+      redirect "/sightings/#{sighting.id}"
+    end  
   end
 
-end
+end  #  End of Class
