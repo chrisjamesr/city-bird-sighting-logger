@@ -11,7 +11,6 @@ class SightingsController < ApplicationController
   end
 
   get '/sightings/:id/edit' do
-
     @sighting = Sighting.find(params[:id])
     @user = User.find(session[:user_id])
     if @sighting.user_id == @user.id
@@ -21,7 +20,8 @@ class SightingsController < ApplicationController
     end
   end
 
-  patch '/sightings/:id/edit' do
+  patch '/sightings/:id' do
+    binding.pry
   end
 
 end
