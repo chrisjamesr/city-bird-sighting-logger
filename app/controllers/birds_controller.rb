@@ -30,7 +30,6 @@ class BirdsController < ApplicationController
   end
 
   patch '/birds/:id' do
-    binding.pry
     bird = Bird.find(params[:id])
     bird.update(params[:bird])
     redirect "/birds/#{bird.id}"
