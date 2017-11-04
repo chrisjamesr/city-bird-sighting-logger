@@ -1,5 +1,6 @@
 <h1>Event</h1>
-<h3><%=@sighting.user.username.capitalize %> Spotted a <%=@sighting.bird.species%></h3>
+<h3><a href="/users/<%=@sighting.user.id%>"><%=@sighting.user.username.capitalize %></a> Spotted a 
+  <a href="/birds/<%=@sighting.bird.id%>"><%=@sighting.bird.species%></a></h3>
 <h3><%=@sighting.time_date%> - <%=@sighting.location %></h3>
 <p><%=@sighting.description %></p>
 
