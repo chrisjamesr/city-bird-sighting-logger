@@ -30,3 +30,7 @@ ActiveRecord::Schema.define(version: 20171103021251) do
   end
 
 end
+
+# Delete all records, reset primary key
+# sqlite> delete from users;
+# sqlite> delete from sqlite_sequence where name='users';
