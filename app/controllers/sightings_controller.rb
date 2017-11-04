@@ -36,9 +36,9 @@ class SightingsController < ApplicationController
 
 
   patch '/sightings/:id' do
-      sighting = Sighting.find(params[:id])
-      sighting.update(params[:sighting])
-      sighting.bird = Bird.find_or_create_by(params[:bird])
+    sighting = Sighting.find(params[:id])
+    sighting.update(params[:sighting])
+    sighting.bird = Bird.find_or_create_by(params[:bird])
     if sighting.save
       redirect "/sightings/#{sighting.id}"
     else
