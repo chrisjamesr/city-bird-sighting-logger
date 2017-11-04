@@ -1,6 +1,8 @@
 <h1>Event</h1>
-
+<h3><%=@sighting.user.username.capitalize %> Spotted a <%=@sighting.bird.species%></h3>
 <h3><%=@sighting.time_date%> - <%=@sighting.location %></h3>
 <p><%=@sighting.description %></p>
 
+<% if @sighting.user == current_user%>
 <a href="/sightings/<%=@sighting.id %>/edit">Edit Event</a>
+<% end %>
