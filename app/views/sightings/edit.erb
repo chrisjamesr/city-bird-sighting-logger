@@ -13,8 +13,10 @@
   </p>
   <p><label for="description">Edit Description:</label></p>
   <p>
-  <textarea name="sighting[description]" id="description" form="sighting_edit_form"><%=@sighting.description %></textarea>
+  <textarea rows="4" cols="60" name="sighting[description]" id="description" form="sighting_edit_form"><%=@sighting.description%>
+  </textarea>
   </p>
+  
   <input type="submit" value="Edit Event">
   
   
@@ -23,3 +25,4 @@
 
 
 </form>
+
