@@ -24,5 +24,17 @@ class BirdsController < ApplicationController
     erb :'/birds/show'
   end
 
+  get '/birds/:id/edit' do
+    @bird = Bird.find(params[:id])
+    erb :'/birds/edit'
+  end
+
+  patch '/birds/:id' do
+    binding.pry
+    bird = Bird.find(params[:id])
+    bird.update(params[:bird])
+    redirect "/birds/#{bird.id}"
+  end
+
 
 end
