@@ -5,5 +5,10 @@
 <p><%=@sighting.description %></p>
 
 <% if @sighting.user == current_user%>
-<a href="/sightings/<%=@sighting.id %>/edit">Edit Event</a>
+<p><a href="/sightings/<%=@sighting.id %>/edit">Edit Event</a></p>
+<p><form action="/sightings/<%=@sighting.id%>/delete" method="POST">
+  <input type="hidden" id="hidden" name="_method" value ="DELETE">
+  <input type="submit" value="Delete Event">
+</form></p>
+
 <% end %>
