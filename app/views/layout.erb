@@ -2,16 +2,21 @@
 <html>
 <head>
   <title>CityBird</title>
- <!--  <link rel="stylesheet" type="text/css" href="../../public/stylesheets/layout.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
 <body>
-<header><hr>
-  <% if logged_in? %>
-  Logged in as: <%= User.find(session[:user_id]).username %> 
-  <%else%>
-  <a href="/login">Login</a>
-  <% end %>
-  <hr></header>
+  <header>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <% if logged_in? %>
+      <%= User.find(session[:user_id]).username %> 
+      <%else%>
+      <a href="/login">Login</a>
+      <% end %>
+    </nav>
+  </header>
 
       <%= yield %>
 
