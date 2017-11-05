@@ -10,14 +10,21 @@
 <body>
   
   <header>
-    <nav class="navbar navbar-light fixed-top" style="background-color: #e3f2fd;">
-      <% if logged_in? %>
-      <a href="/logout">Logout</a>
-      <%#= User.find(session[:user_id]).username %> 
-      <%else%>
-      <a href="/login">Login</a>
-      <% end %>
-    </nav>
+  <nav class="nav">
+  <% if logged_in? %>
+  <a class="nav-link" href="/logout">Logout</a>
+  <a class="nav-link" href="/users/<%=current_user.id%>">Home</a>
+  <a class="nav-link" href="/users">Users</a>
+  <a class="nav-link" href="/birds">Birds</a>
+  <a class="nav-link" href="/sightings">Sightings</a>
+  <%else%>
+  <a class="nav-link" href="/login">Login</a>
+  <% end %>
+  
+
+  
+</nav>
+  
   </header>
 <div class="container">
       <%= yield %>
