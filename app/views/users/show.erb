@@ -12,8 +12,10 @@
     <% end %>
     </ul>
   <% end %>  
+  </div>
   <% if @user == current_user %>
     <%#  refactor as partial? %>
+    <div class="container jumbotron">
     <h3>Add a new Bird Sighting</h3>
     <form action='/sightings' method="POST" id="new_sighting_form">
     <p><label for="sighting_location">Location:</label>
