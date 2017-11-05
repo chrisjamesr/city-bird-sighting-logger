@@ -8,23 +8,24 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
 <body>
+  
   <header>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light fixed-top" style="background-color: #e3f2fd;">
       <% if logged_in? %>
-      <%= User.find(session[:user_id]).username %> 
+      <a href="/logout">Logout</a>
+      <%#= User.find(session[:user_id]).username %> 
       <%else%>
       <a href="/login">Login</a>
       <% end %>
     </nav>
   </header>
-
+<div class="container">
       <%= yield %>
+</div>
 
+<footer class="fixed-bottom"><hr>
+Created By C. Rudolph,   2017
+  </footer>
 
-<footer><hr>FOOTER 
-<% if logged_in? %>
-  <a href="/logout">LogOut </a>  
-  <% end %>
-  <hr></footer>
 </body>
 </html>
