@@ -15,7 +15,7 @@
   <% if @user == current_user %>
     <%#  refactor as partial? %>
     <h3>Add a new Bird Sighting</h3>
-    <form action='/sightings' method="POST">
+    <form action='/sightings' method="POST" id="new_sighting_form">
     <p><label for="sighting_location">Location:</label>
     <input type="text" name="sighting[location]" required>
     </p>
@@ -27,7 +27,7 @@
     </p>
     <p><label for="description">Description:</label>
     <p>
-      <textarea name="sighting[description]" id="description" form="sighting_edit_form"></textarea>
+      <textarea rows="4" cols="60" name="sighting[description]" id="description" form="new_sighting_form"></textarea>
   </p>
     <input type="submit" value="Add Sighting">
   <% end %>
