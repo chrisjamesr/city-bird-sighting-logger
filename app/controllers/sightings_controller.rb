@@ -11,6 +11,7 @@ class SightingsController < ApplicationController
   end
 
   post '/sightings' do
+    binding.pry
     sighting = Sighting.new(params[:sighting])
     sighting.user = User.find(session[:user_id])
     sighting.bird = Bird.find_or_create_by(params[:bird])
@@ -33,8 +34,6 @@ class SightingsController < ApplicationController
     end
   end
 
-
-
   patch '/sightings/:id' do
     sighting = Sighting.find(params[:id])
     sighting.update(params[:sighting])
@@ -46,4 +45,15 @@ class SightingsController < ApplicationController
     end  
   end
 
+  delete '/sightings/:id/delete' do
+    @sighting = Sighting.find(params[:id])
+    if @sighting.user == current_user
+      @sighting.destroy
+      redirect "/users/#{@sighting.user_id}"
+    else 
+      redirect "/sightings"
+    end
+  end
+
+ 
 end  #  End of Class
