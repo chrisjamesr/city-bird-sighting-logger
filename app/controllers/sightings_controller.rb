@@ -11,7 +11,6 @@ class SightingsController < ApplicationController
   end
 
   post '/sightings' do
-    binding.pry
     sighting = Sighting.new(params[:sighting])
     sighting.user = User.find(session[:user_id])
     sighting.bird = Bird.find_or_create_by(params[:bird])
