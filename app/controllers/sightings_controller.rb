@@ -11,7 +11,8 @@ class SightingsController < ApplicationController
   end
 
   get '/sightings/:id' do
-    user = User.find(session[:user_id])
+    # @user = User.find(session[:user_id])
+    @sighting = Sighting.find(params[:id])
     erb :'sightings/show'
   end
 
