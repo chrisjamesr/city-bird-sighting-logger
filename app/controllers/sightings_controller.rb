@@ -5,8 +5,13 @@ class SightingsController < ApplicationController
     erb :'sightings/index'
   end
 
+  get '/sightings/new' do
+    @user = User.find(session[:user_id])
+    erb :'sightings/new'
+  end
+
   get '/sightings/:id' do
-    @sighting = Sighting.find(params[:id])
+    user = User.find(session[:user_id])
     erb :'sightings/show'
   end
 
