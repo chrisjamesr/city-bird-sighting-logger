@@ -9,26 +9,15 @@
   <link rel="stylesheet" type="text/css" href="/css/layout.css">
 </head>
 <body>
-  
-  <header>
-  <nav class="nav">
-    <% if logged_in? %>
-    <a class="nav-link" href="/logout">Logout</a>
-    <a class="nav-link" href="/users/<%=current_user.id%>">Home</a>
-    <a class="nav-link" href="/users">Users</a>
-    <a class="nav-link" href="/birds">Birds</a>
-    <a class="nav-link" href="/sightings">Sightings</a>
-    <% end %>
-  </nav>
-  
-  </header>
+<div class="container">
+
 
       <%= yield %>
-</div>
+
 
 <footer class="fixed-bottom"><hr>
 Created By C. Rudolph,   2017
   </footer>
-
+</div>  
 </body>
 </html>
