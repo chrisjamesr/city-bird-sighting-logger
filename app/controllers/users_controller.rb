@@ -39,13 +39,19 @@ class UsersController < ApplicationController
   end 
 
   get '/users' do
+    authenticate!
     @users = User.all
     erb :'/users/index'
   end
 
   get '/users/:id' do
+    authenticate!
     @user = User.find(params[:id])
-    erb :'/users/show'
+    if session[:original_request]
+      redirect "#{session[:original_request]}"
+    else
+      erb :'/users/show'
+    end
   end
 
   # unnecessary

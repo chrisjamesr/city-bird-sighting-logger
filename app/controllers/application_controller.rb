@@ -11,7 +11,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-
     erb :root, layout: :root_layout
   end
 
@@ -21,9 +20,16 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
+    def authenticate!
+      unless session[:user_id]
+        redirect '/'
+      end
+    end
+      
     def current_user
       User.find(session[:user_id])
     end
+
   end  #  End of Helpers
 
   

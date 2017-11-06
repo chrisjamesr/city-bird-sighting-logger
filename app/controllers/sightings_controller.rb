@@ -1,16 +1,19 @@
 class SightingsController < ApplicationController
 
   get '/sightings' do 
+    authenticate!
     @sightings = Sighting.all
     erb :'sightings/index'
   end
 
   get '/sightings/new' do
+    authenticate!
     @user = User.find(session[:user_id])
     erb :'sightings/new'
   end
 
   get '/sightings/:id' do
+    authenticate!
     # @user = User.find(session[:user_id])
     @sighting = Sighting.find(params[:id])
     erb :'sightings/show'
@@ -30,6 +33,7 @@ class SightingsController < ApplicationController
 
 
   get '/sightings/:id/edit' do
+    authenticate!
     @sighting = Sighting.find(params[:id])
     @user = User.find(session[:user_id])
     if current_user == @user
