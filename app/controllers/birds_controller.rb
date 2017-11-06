@@ -5,6 +5,7 @@ class BirdsController < ApplicationController
 
   get '/birds' do
     authenticate!
+      @birds = Bird.all
       erb :'/birds/index'
   end
 
