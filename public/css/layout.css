@@ -1,4 +1,10 @@
-.container {
+body {
+  height: 100%;
+}
+
+.landing-header {
   position: relative;
-  top: 40px;
+  /*top: 40px;*/
+  text-align: center;
+  padding-top: 40vh
 }
