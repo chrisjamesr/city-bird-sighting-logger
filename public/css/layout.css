@@ -9,6 +9,11 @@ body {
   padding-top: 40vh
 }
 
+.container {
+  text-align: center;
+  position: relative;
+  top: 0vh;
+}
 ul {
   list-style-type: none;
 }
