@@ -1,24 +1,26 @@
-<h1>Edit your event</h1>
+<div class="container">
+  <h1>Edit your event</h1>
 
-<form action='/sightings/<%=@sighting.id%>' method="POST" id="sighting_edit_form">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-  <p><label for="sighting_location">Edit Location:</label>
-  <input type="text" name="sighting[location]" value ="<%=@sighting.location %>">
-  </p>
-  <p><label for="sighting_time_date">Edit Time/Date:</label>
-  <input type="text" id=""sighting_time_date" name="sighting[time_date]" value ="<%=@sighting.time_date %>">
-  </p>
-  <p><label for="bird_species">Edit Bird:</label>
-  <input type="text" id="bird_species" name="bird[species]" value ="<%=@sighting.bird.species %>">
-  </p>
-  <p><label for="description">Edit Description:</label></p>
-  <p>
-  <textarea rows="4" cols="60" name="sighting[description]" id="description" form="sighting_edit_form"><%=@sighting.description%>
-  </textarea>
-  </p>
-  
-  <input type="submit" value="Edit Event">
+  <form action='/sightings/<%=@sighting.id%>' method="POST" id="sighting_edit_form">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+    <div class="form-group">    
+      <label for="sighting_location">Edit Location:</label>
+      <input class="form-control" type="text" name="sighting[location]" value ="<%=@sighting.location %>">
+    </div>
+    <div class="form-group">    
+      <label for="sighting_time_date">Edit Time/Date:</label>
+      <input class="form-control" type="text" id=""sighting_time_date" name="sighting[time_date]" value ="<%=@sighting.time_date %>">
+    </div>
+    <div class="form-group">    
+      <label for="bird_species">Edit Bird:</label>
+      <input class="form-control" type="text" id="bird_species" name="bird[species]" value ="<%=@sighting.bird.species %>">
+    </div>
+    <div class="form-group">    
+      <label for="description">Edit Description:</label>
+      <textarea class="form-control" rows="4" cols="60" name="sighting[description]" id="description" form="sighting_edit_form"><%=@sighting.description%>
+    </textarea>
+    </div>    
+    <input class="form-control" type="submit" value="Edit Event">
+  </form>
 
-</form>
-
-
+</div>  
