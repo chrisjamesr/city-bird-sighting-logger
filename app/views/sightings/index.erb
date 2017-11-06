@@ -1,8 +1,10 @@
-<h1>View all Bird related events</h1>
+<div class="container">
+  <h1>View all Bird related events</h1>
 
 
-<ul>
-<% @sightings.each do |sighting| %>
-  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.time_date%></a></li>
-<%end %>  
-</ul>
+  <ul class="list-group">
+  <% @sightings.each do |sighting| %>
+    <li class="list-group-item"><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.time_date%></a></li>
+  <%end %>  
+  </ul> 
+</div>  

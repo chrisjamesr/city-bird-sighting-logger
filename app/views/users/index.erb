@@ -1,15 +1,18 @@
-<h1>Community Members</h1>
+<div class="container">
+  <h1>Community Members</h1>
 
-<% # add user.datetime for "Member Since ..."%>
-<% @users.each do |user| %>
-
-  <h3><a href="/users/<%=user.id%>"><%=user.username.capitalize%></a></h3>
-  
-  User Sightings:
-  <ul>
-    <% user.sightings.each do |sighting| %>
-      <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.bird.species%></a></li>
-    <% end %>
-  </ul>
-
-<% end %>
+  <% # add user.datetime for "Member Since ..."%>
+  <% @users.each do |user| %>
+    <ul class="list-group">
+      <li class="list-group-item"><h3><a href="/users/<%=user.id%>"><%=user.username.capitalize%></a></h3>
+      
+        User Sightings:
+        <ul class="list-group">
+          <% user.sightings.each do |sighting| %>
+            <li class="list-group-items"><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.bird.species%></a></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  <% end %>
+</div>

@@ -1,7 +1,9 @@
-<h1>Look at all the Birds</h1>
+<div class="container jumbotron">
+  <h1>Look at all the Birds</h1>
 
-<ul>
-<% @birds.each do |bird| %>
-  <li><a href="/birds/<%=bird.id%>"><%=bird.species%></a></li>
-<% end %>
-</ul>
+  <ul class="list-group">
+  <% @birds.each do |bird| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="/birds/<%=bird.id%>"><%=bird.species%></a><span class="badge badge-primary badge-pill"><%=bird.sightings.count%></span></li>
+  <% end %>
+  </ul> 
+</div>  
