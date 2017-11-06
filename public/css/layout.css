@@ -8,3 +8,11 @@ body {
   text-align: center;
   padding-top: 40vh
 }
+
+ul {
+  list-style-type: none;
+}
+
+/*.container {
+  border: 1px solid black;
+}*/
