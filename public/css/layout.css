@@ -6,14 +6,15 @@ body {
   position: relative;
   /*top: 40px;*/
   text-align: center;
-  padding-top: 40vh
+  padding-top: 40vh;
 }
 
 .container {
   text-align: center;
   position: relative;
-  top: 0vh;
+  top: 5vh;
 }
+
 ul {
   list-style-type: none;
 }
