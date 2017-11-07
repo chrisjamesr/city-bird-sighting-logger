@@ -20,13 +20,13 @@ class SightingsController < ApplicationController
   end
 
   post '/sightings' do
-    sighting = Sighting.new(params[:sighting])
-    sighting.user = User.find(session[:user_id])
-    sighting.bird = Bird.find_or_create_by(params[:bird])
-    if sighting.save    
-      redirect "/sightings/#{sighting.id}"
+    @sighting = Sighting.new(params[:sighting])
+    @sighting.user = User.find(session[:user_id])
+    @sighting.bird = Bird.find_or_create_by(params[:bird])
+    if @sighting.save    
+      redirect "/sightings/#{sighting.id}", flash[:success] = "Sighting added successfully" 
     else
-      redirect "/users/#{sighting.user.id}"  
+      redirect "/users/#{sighting.user.id}",  flash[:error] = @sighting.errors.messages 
     end
 
   end

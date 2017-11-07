@@ -18,7 +18,7 @@ class BirdsController < ApplicationController
     
     bird = Bird.new(params[:bird])
     if bird.save
-      redirect "/birds/#{bird.id}"
+      redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} added to the log"
     else
       redirect '/birds/new'  
     end

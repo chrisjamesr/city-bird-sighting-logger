@@ -14,9 +14,9 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       # flash[:message] = "Thanks for signing up!"
-      redirect "/users/#{user.id}", notice: "Welcome #{user.username}"
+      redirect "/users/#{user.id}", flash[:notice] = "Success"
     else
-      redirect '/signup'
+      redirect '/signup', flash[:error] = user.errors.full_messages.to_sentence
     end
   end  
 
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
     binding.pry
     if logged_in?
       user = User.find(session[:user_id])
-      redirect "/users/#{user.id}", notice: "Signed in as #{user.username}"
+      redirect "/users/#{user.id}", flash[:notice] = "Already signed in as #{user.username}"
     else  
-      erb :'/users/login'
+      erb :'/users/login' 
     end
   end
 
@@ -35,9 +35,9 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       
-      redirect "/users/#{user.id}", notice: "Welcome #{user.username}"
+      redirect "/users/#{user.id}", flash[:notice] = "Welcome #{user.username}"
     else
-      redirect '/login'
+      redirect '/login', flash[:error] = user.errors.full_messages.to_sentence
     end
   end 
 
@@ -81,7 +81,8 @@ class UsersController < ApplicationController
   get '/logout' do
       if logged_in?
       session.clear
-      redirect '/login', message: "You have successfully logged out"
+      flash[:message] = "You have successfully logged out"
+      redirect '/login'
     else
       redirect '/'
     end
