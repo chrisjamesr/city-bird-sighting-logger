@@ -1,4 +1,5 @@
 require 'rack-flash'
+require 'sinatra/redirect_with_flash'
 
 
 class ApplicationController < Sinatra::Base
@@ -12,7 +13,6 @@ class ApplicationController < Sinatra::Base
   
 
   get '/' do
-    # flash[:message] = "Successfully created song."
     erb :root, layout: :root_layout
   end
 
@@ -31,6 +31,9 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find(session[:user_id])
     end
+
+    Sinatra::RedirectWithFlash
+    
 
   end  #  End of Helpers
 
