@@ -1,3 +1,6 @@
+<% if flash.has?(:notice) %>
+  <div style="color:green;"><%= flash[:notice] %></div>
+<% end %>
 <div class="container">
 <h1><%= @user.username.capitalize %></h1>
 
