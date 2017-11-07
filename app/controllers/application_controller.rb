@@ -1,16 +1,18 @@
-require './config/environment'
+require 'rack-flash'
+
 
 class ApplicationController < Sinatra::Base
-
+  use Rack::Flash
   configure do
-  #  set :public_folder, 'public'
-  #  set :views, 'app/views'
     set :views, Proc.new { File.join(root, "../views/") }
-    enable :sessions unless test?
+    # register Sinatra::Flash
+    enable :sessions 
     set :session_secret, "secret"
   end
+  
 
   get '/' do
+    # flash[:message] = "Successfully created song."
     erb :root, layout: :root_layout
   end
 
