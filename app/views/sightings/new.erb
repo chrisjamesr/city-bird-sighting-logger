@@ -1,3 +1,4 @@
+
 <div class="container">
 <h1>Add to Your Log,  <%=@user.username.capitalize %></h1>
 
@@ -6,15 +7,15 @@
         <form action='/sightings' method="POST" id="new_sighting_form"></div>
             <div class="form-group">    
                 <label for="sighting_location">Location:</label>
-                <input class="form-control" type="text" name="sighting[location]" required>
+                <input class="form-control" type="text" name="sighting[location]" >
             </div>
             <div class="form-group">    
                 <label for="sighting_time_date">Time/Date:</label>
-                <input class="form-control" type="text" id=""sighting_time_date" name="sighting[time_date]" required>
+                <input class="form-control" type="text" id=""sighting_time_date" name="sighting[time_date]">
             </div>
             <div class="form-group"> 
                 <label for="bird_species">Bird:</label>
-                <input class="form-control" type="text" id="bird_species" name="bird[species]" required>
+                <input class="form-control" type="text" id="bird_species" name="bird[species]">
             </div>   
             <div class="form-group">
                 <label for="description">Description:</label>

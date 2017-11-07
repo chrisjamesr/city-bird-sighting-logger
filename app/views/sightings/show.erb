@@ -1,3 +1,6 @@
+<%= if flash.has?(:success) %>
+ <div style="color:green;"><%= flash[:message] %></div>
+<% end %>
 <h1>Event</h1>
 <h3><a href="/users/<%=@sighting.user.id%>"><%=@sighting.user.username.capitalize %></a> Spotted a 
   <a href="/birds/<%=@sighting.bird.id%>"><%=@sighting.bird.species%></a></h3>

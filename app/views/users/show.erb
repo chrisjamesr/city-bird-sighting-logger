@@ -1,4 +1,6 @@
-<% if flash.has?(:notice) %>
+<% if flash.has?(:error) %>
+  <div style="color:green;"><%= flash[:error] %></div>
+<% elsif flash.has?(:notice) %>
   <div style="color:green;"><%= flash[:notice] %></div>
 <% end %>
 <div class="container">
