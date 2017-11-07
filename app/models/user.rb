@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :username, :password
+  validates_presence_of :username, :password, allow_blank: false
   validates :username, uniqueness: { case_sensitive: false }
   has_secure_password
   has_many :sightings

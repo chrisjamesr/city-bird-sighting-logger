@@ -1,4 +1,7 @@
 class Bird < ActiveRecord::Base
+validates_presence_of :species, allow_blank: false
+validates_uniqueness_of :species
+
 has_many :sightings
 has_many :users, through: :birds
 
