@@ -35,9 +35,9 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       
-      redirect "/users/#{user.id}", flash[:notice] = "Welcome #{user.username}"
+      redirect "/users/#{user.id}"
     else
-      redirect '/login', flash[:error] = user.errors.full_messages.to_sentence
+      redirect '/login'
     end
   end 
 
@@ -81,8 +81,7 @@ class UsersController < ApplicationController
   get '/logout' do
       if logged_in?
       session.clear
-      flash[:message] = "You have successfully logged out"
-      redirect '/login'
+      redirect '/login', 
     else
       redirect '/'
     end
