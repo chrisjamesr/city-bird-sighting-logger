@@ -1,3 +1,7 @@
+
+<% if flash.has?(:message) %>
+  <div style="color:green;"><%= flash[:message] %></div>
+<% end %>
 <div class="container">
   <h1>Community Members</h1>
 
