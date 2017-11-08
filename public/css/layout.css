@@ -19,6 +19,26 @@ ul {
   list-style-type: none;
 }
 
+.flash{
+width: 100%;
+text-align: center
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+.success{
+  color: #050d01;
+  background-color: #0ec733
+}
+
+.error{
+  color: #5c132d;
+  background-color: #eb598c;
+}
 /*.container {
   border: 1px solid black;
 }*/
