@@ -13,6 +13,9 @@ gem 'bcrypt'
 gem 'tux'
 gem 'rack-flash3'
 gem 'sinatra-redirect-with-flash'
+gem 'wikipedia-client'
+
+
 
 group :test do
   gem 'rspec'
