@@ -23,14 +23,10 @@ class SightingsController < ApplicationController
     sighting = Sighting.new(params[:sighting])
     sighting.user = User.find(session[:user_id])
     sighting.bird = Bird.find_or_create_by(params[:bird])
-    if sighting.save && sighting.bird   
-      binding.pry
+    if sighting.save 
       redirect "/sightings/#{sighting.id}", flash[:success] = "Sighting added successfully" 
     else
-      flash[:error] = sighting.errors.messages 
-      flash[:error] <<
-      binding.pry
-      redirect "/users/#{sighting.user.id}"
+      redirect "/users/#{sighting.user.id}", flash[:error] = sighting.errors.full_messages.to_sentence
     end
 
   end
@@ -52,9 +48,9 @@ class SightingsController < ApplicationController
     sighting.update(params[:sighting])
     sighting.bird = Bird.find_or_create_by(params[:bird])
     if sighting.save
-      redirect "/sightings/#{sighting.id}"
+      redirect "/sightings/#{sighting.id}", flash[:success] = "Update successful" 
     else
-      redirect "/sightings/#{sighting.id}"
+      redirect "/sightings/#{sighting.id}", flash[:error] = sighting.errors.full_messages.to_sentence
     end  
   end
 
@@ -62,6 +58,7 @@ class SightingsController < ApplicationController
     @sighting = Sighting.find(params[:id])
     if @sighting.user == current_user
       @sighting.destroy
+      flash[:success] = "Sighting removed"
       redirect "/users/#{@sighting.user_id}"
     else 
       redirect "/sightings"

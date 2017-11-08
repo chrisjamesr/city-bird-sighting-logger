@@ -1,9 +1,6 @@
 class BirdsController < ApplicationController
 
-  
-
-
-  get '/birds' do
+ get '/birds' do
     authenticate!
       @birds = Bird.all
       erb :'/birds/index'
@@ -18,9 +15,9 @@ class BirdsController < ApplicationController
     
     bird = Bird.new(params[:bird])
     if bird.save
-      redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} added to the log"
+      redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} added to the log" 
     else
-      redirect '/birds/new'  
+      redirect '/birds/new', flash[:error] = bird.errors.full_messages.to_sentence  
     end
   end
 
@@ -38,9 +35,12 @@ class BirdsController < ApplicationController
 
   patch '/birds/:id' do
     bird = Bird.find(params[:id])
-    bird.update(params[:bird])
-    redirect "/birds/#{bird.id}"
-  end
+    if bird.update(params[:bird])
+      redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} Updated"
+    else
+      redirect "/birds/#{bird.id}/edit", flash[:error] = bird.errors.full_messages.to_sentence     
+    end
+  end  
 
 
 end
