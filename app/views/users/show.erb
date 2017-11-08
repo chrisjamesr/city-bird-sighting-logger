@@ -1,12 +1,14 @@
-<% if flash.has?(:error) %>
-  <div class="error flash fade-out"><%= flash[:error] %></div>
-<% elsif flash.has?(:success) %>
-  <div class="success flash fade-out"><%= flash[:success] %></div>
-<% end %>
 <div class="container">
-<h1><%= @user.username.capitalize %></h1>
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+  <% elsif flash.has?(:success) %>
+    <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+  <% end %>
 
-<h3 style="display: inline">Sightings Log</h3> <a href="/sightings/new"><button type="button" class="btn btn-primary btn-med">Add to Log</button></a></p>
+  
+  <h1><%= @user.username.capitalize %></h1>
+
+  <h3 style="display: inline">Sightings Log</h3> <a href="/sightings/new"><button type="button" class="btn btn-primary btn-med">Add to Log</button></a></p>
 
   <div>
   <% if !@user.sightings.empty?%> 

@@ -1,24 +1,26 @@
-
-<% if flash.has?(:message) %>
-  <div style="color:green;"><%= flash[:message] %></div>
-<% end %>
 <div class="container">
-  <h1>Community Members</h1>
-
-  <% # add user.datetime for "Member Since ..."%>
-  <% @users.each do |user| %>
-    <div>
-    <ul class="list-group">
-      <li class="list-group-item"><h3><a href="/users/<%=user.id%>"><%=user.username.capitalize%></a></h3>
-      
-        <span class="d-flex justify-content-between align-items-center">User Sightings:</span>
-        <ul class="list-group">
-          <% user.sightings.each do |sighting| %>
-            <li class="list-group-items d-flex justify-content-between align-items-center"><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.bird.species%></a></li>
-          <% end %>
-        </ul>
-      </li>
-    </ul>
-    </div>  
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+  <% elsif flash.has?(:success) %>
+    <div class="alert alert-success fade-out"><%= flash[:success] %></div>
   <% end %>
+
+    <h1>Community Members</h1>
+
+    <% # add user.datetime for "Member Since ..."%>
+    <% @users.each do |user| %>
+      <div>
+      <ul class="list-group">
+        <li class="list-group-item"><h3><a href="/users/<%=user.id%>"><%=user.username.capitalize%></a></h3>
+        
+          <span class="d-flex justify-content-between align-items-center">User Sightings:</span>
+          <ul class="list-group">
+            <% user.sightings.each do |sighting| %>
+              <li class="list-group-items d-flex justify-content-between align-items-center"><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.bird.species%></a></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      </div>  
+    <% end %>
 </div>

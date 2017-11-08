@@ -1,16 +1,21 @@
 <div class="container">
-<h1>Update a birds information</h1>
+  <% if flash.has?(:error) %>
+      <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+    <% elsif flash.has?(:success) %>
+      <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+    <% end %> 
+  <h1>Update a birds information</h1>
 
-  <form action='/birds/<%=@bird.id%>' method="POST">
-    <input type="hidden" id="hidden" name="_method" value="PATCH">
-    <div class="form-group">    
-      <label for="bird_species">Edit Species:</label>
-      <input class="form-control" id="bird_species" type="text" name="bird[species]" value ="<%=@bird.species %>" required>
-    </div>
-    <div class="form-group">    
-      <label for="image_url">Edit Image URL (optional):</label>
-      <input class="form-control" id="image_url" type="url" name="image_url" value ="<%=@bird.species %>">
-    </div>
-    <input class="form-control" type="submit" value="Edit Bird">
-  </form>
+    <form action='/birds/<%=@bird.id%>' method="POST">
+      <input type="hidden" id="hidden" name="_method" value="PATCH">
+      <div class="form-group">    
+        <label for="bird_species">Edit Species:</label>
+        <input class="form-control" id="bird_species" type="text" name="bird[species]" value ="<%=@bird.species %>">
+      </div>
+      <div class="form-group">    
+        <label for="image_url">Edit Image URL (optional):</label>
+        <input class="form-control" id="image_url" type="url" name="image_url" value ="<%=@bird.species %>">
+      </div>
+      <input class="form-control" type="submit" value="Edit Bird">
+    </form>
 </div>

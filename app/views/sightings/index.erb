@@ -1,4 +1,9 @@
 <div class="container">
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+  <% elsif flash.has?(:success) %>
+    <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+  <% end %>
   <h1>User Log Entries</h1>
 
 

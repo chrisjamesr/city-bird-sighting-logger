@@ -1,19 +1,24 @@
-<%= if flash.has?(:success) %>
- <div style="color:green;"><%= flash[:message] %></div>
-<% end %>
-<h1><%=@bird.species %></h1>
-
-<h3>Sightings:</h3>
-<ul>
-<% @bird.sightings.each do |sighting| %>
-  <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location; sighting.time_date%></a></li>
+<div class="container">
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+  <% elsif flash.has?(:success) %>
+    <div class="alert alert-success fade-out"><%= flash[:success] %></div>
   <% end %>
-</ul>
+
+  <h1><%=@bird.species %></h1>
+
+  <h3>Sightings:</h3>
+  <ul>
+  <% @bird.sightings.each do |sighting| %>
+    <li><a href="/sightings/<%=sighting.id%>"><%=sighting.location; sighting.time_date%></a></li>
+    <% end %>
+  </ul>
 
 
-<h3>Images:</h3>
+  <h3>Images:</h3>
 
 
-<h3>Additional information:</h3>
+  <h3>Additional information:</h3>
 
-<a href="/birds/<%=@bird.id%>/edit">Edit</a>
+  <a href="/birds/<%=@bird.id%>/edit">Edit</a>
+</div>

@@ -1,18 +1,25 @@
-<h1>Edit Your Profile, <%=user.username%></h1>
+<div class="container">
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+  <% elsif flash.has?(:success) %>
+    <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+  <% end %>
+  <h1>Edit Your Profile, <%=user.username%></h1>
 
-<form action="/users/<%=@user.id%>/edit" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="patch">
-  <p>
-    <label>Username:</label>
-    <input type="text" name="user[username]" value="<%=@user.username%>">
-  </p>
-  <p>
-    <label>Old Password:</label>
-    <input type="password" name="user[password]" value ="<%=@user.password%>">
-  </p>
-  <p>
-    <label>New Password:</label>
-    <input type="password" name="user[new_password]" value ="<%=@user.password%>">
-  </p>
-  <input type="submit" value="Edit">
-</form> %>
+  <form action="/users/<%=@user.id%>/edit" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="patch">
+    <p>
+      <label>Username:</label>
+      <input type="text" name="user[username]" value="<%=@user.username%>">
+    </p>
+    <p>
+      <label>Old Password:</label>
+      <input type="password" name="user[password]" value ="<%=@user.password%>">
+    </p>
+    <p>
+      <label>New Password:</label>
+      <input type="password" name="user[new_password]" value ="<%=@user.password%>">
+    </p>
+    <input type="submit" value="Edit">
+  </form> 
+</div>
