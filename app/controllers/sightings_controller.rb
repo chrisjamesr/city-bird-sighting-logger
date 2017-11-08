@@ -27,7 +27,8 @@ class SightingsController < ApplicationController
       binding.pry
       redirect "/sightings/#{sighting.id}", flash[:success] = "Sighting added successfully" 
     else
-      flash[:error] = sighting.bird.errors.messages 
+      flash[:error] = sighting.errors.messages 
+      flash[:error] <<
       binding.pry
       redirect "/users/#{sighting.user.id}"
     end
