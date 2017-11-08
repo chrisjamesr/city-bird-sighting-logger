@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id      
       redirect "/users/#{user.id}", flash[:success] = "Welcome #{user.username}"
     else
-      redirect '/login', flash[:error] = user.errors.full_messages.to_sentence
+      redirect '/login', flash[:error] = "Wrong Username or Password"
     end
   end 
 
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
-      redirect '/login'
+      redirect '/login', flash[:success] = "Logged Out"
     else
       redirect '/'
     end
