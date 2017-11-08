@@ -21,13 +21,14 @@ ul {
 
 .flash{
 width: 100%;
-text-align: center
+text-align: center;
+font-size: 2em;
 }
 
 .fade-out {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
+  transition: visibility 0s 10s, opacity 2s linear;
 }
 
 .success{
