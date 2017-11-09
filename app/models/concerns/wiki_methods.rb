@@ -20,7 +20,11 @@ module Wiki
 
     def summary_parse
       sum_array = wiki_scrape.summary.split(". ")
-      sum_array[0..4].join(". ")
+      sum_array[0..4].join(". ") + "..."
+    end
+
+    def page_url
+      wiki_scrape.fullurl
     end
 
   end  #  End of Module
