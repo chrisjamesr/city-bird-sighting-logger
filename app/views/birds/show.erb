@@ -6,9 +6,11 @@
   <% end %>
 
   <h1><%=@bird.species %></h1>
-  <article>
+  <article class="clearfix">
     <img class="main-image" src="<%=@bird.image_url %>" alt="This should be a picture of a(n) <%=@bird.species%>">
-    <div class="summary"><%=@bird.summary%></div>
+    <div class="summary"><%=@bird.summary_parse%>
+      <a href="<%=@bird.page_url %>">Read More</a>
+    </div>
   </article>
   <h3>Sightings:</h3>
   <ul>
