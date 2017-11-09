@@ -8,7 +8,11 @@
   
   <h1><%= @user.username.capitalize %></h1>
 
-  <h3 style="display: inline">Sightings Log</h3> <a href="/sightings/new"><button type="button" class="btn btn-primary btn-med">Add to Log</button></a></p>
+  <h3>Sightings Log</h3> 
+  <h3>
+    <a href="/sightings/new">Add New Sighting
+    </a>
+  </h3>
 
   <div>
   <% if !@user.sightings.empty?%> 
