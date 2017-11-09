@@ -6,7 +6,10 @@
   <% end %>
 
   <h1><%=@bird.species %></h1>
-
+  <article>
+    <img class="main-image" src="<%=@bird.image_url %>" alt="This should be a picture of a(n) <%=@bird.species%>">
+    <div class="summary"><%=@bird.summary%></div>
+  </article>
   <h3>Sightings:</h3>
   <ul>
   <% @bird.sightings.each do |sighting| %>
@@ -15,10 +18,10 @@
   </ul>
 
 
-  <h3>Images:</h3>
+  <!-- <h3>Images:</h3> -->
 
 
-  <h3>Additional information:</h3>
+  <!-- <h3>Additional information:</h3> -->
 
   <a href="/birds/<%=@bird.id%>/edit">Edit</a>
 </div>
