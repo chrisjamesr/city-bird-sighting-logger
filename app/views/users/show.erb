@@ -6,14 +6,13 @@
   <% end %>
 
   
-  <h1><%= @user.username.capitalize %></h1>
+  <h1 class="header-plus"><%= @user.username.capitalize %></h1>
+  <div class="header-plus">
+    <a href="/sightings/new">Add New Sighting</a>
+  </div>   
 
   <h3>Sightings Log</h3> 
-  <h3>
-    <a href="/sightings/new">Add New Sighting
-    </a>
-  </h3>
-
+  
   <div>
   <% if !@user.sightings.empty?%> 
     <ul>
