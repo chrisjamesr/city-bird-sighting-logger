@@ -8,9 +8,12 @@ body {
   text-align: center;
   padding-top: 40vh;
 }
+h1 {
+  margin-bottom: 10px;
+}
 
 .container {
-  text-align: center;
+  /*text-align: center;*/
   position: relative;
   top: 7vh;
 }
@@ -19,6 +22,16 @@ ul {
   list-style-type: none;
 }
 
+.main-image{
+  float: right;
+  height:200px;
+  width: 40%;
+  object-fit: contain;
+}
+
+.summary {
+  text-align: left;
+}
 /*.alert{
 width: 100%;
 text-align: center;
