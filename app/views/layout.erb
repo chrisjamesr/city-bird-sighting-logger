@@ -6,27 +6,25 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.min.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/layout.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="/css/layout.css">
 </head>
 <body>
   
   <header>
     <div class="banner">
-      <img src="/assets/birdy.svg">
+      <img class="icon" src="/assets/birdy.svg">
       <h1 class="title-header">CITY BIRD</h1>
     </div>
-    <nav class="nav d-flex flex-row d-flex justify-content-around">
+    <nav class="nav">
       <% if logged_in? %>
       <a class="nav-link" href="/users/<%=current_user.id%>">Home</a>
       <a class="nav-link" href="/users">Users</a>
       <a class="nav-link" href="/birds">Birds</a>
       <a class="nav-link" href="/sightings">Sightings</a>
-      <a class="nav-link" href="/logout">Logout</a>     
-      
+      <a class="nav-link" href="/logout">Logout</a>      
       <% end %>
-    </nav>
-    
+    </nav>    
   </header>
 
       <%= yield %>
