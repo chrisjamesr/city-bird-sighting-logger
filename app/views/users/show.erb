@@ -5,11 +5,15 @@
     <div class="alert alert-success fade-out"><%= flash[:success] %></div>
   <% end %>
 
-  
-  <h2 class="header-plus"><%= @user.username.capitalize %></h1>
-  <div class="header-plus">
-    <a href="/sightings/new">Add New Sighting</a>
+  <div class="page-title">
+    <div class="header-plus">
+      <%= @user.username.capitalize %>
+    </div>
+      <a href="/sightings/new">Add New Sighting</a>
   </div>   
+  <p class="title-info">
+    Member since: November 2017 | <span>Total Birds Sighted: 1</span>
+  </p>
 
   <h3>Sightings Log</h3> 
   
