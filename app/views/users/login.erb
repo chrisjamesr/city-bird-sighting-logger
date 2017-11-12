@@ -1,7 +1,7 @@
 <% if flash.has?(:error) %>
-    <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
 <% elsif flash.has?(:success) %>
-  <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+  <div class="alert alert-success"><%= flash[:success] %></div>
 <% end %>
 
 <div class="landing-header">
