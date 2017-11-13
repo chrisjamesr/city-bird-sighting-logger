@@ -21,7 +21,7 @@
   <% if !@user.sightings.empty?%> 
     <ul>
     <% @user.sightings.each do |sighting| %>
-    <li><a href="/sightings/<%=sighting.id%>"><%=sighting.time_date%> - <%=sighting.location %></a>  - 
+    <li><a href="/sightings/<%=sighting.id%>"><%=sighting.time_date.parse%> - <%=sighting.location %></a>  - 
         <a href="/birds/<%=sighting.bird.id%>"><%=sighting.bird.species%></a>   
         <p><%=sighting.description %></p>     
     </li>
