@@ -53,11 +53,19 @@ nav {
   align-items: baseline;
 }
 
+.page-title > a {
+  font-weight: 500;
+}
+
 .header-plus {
   display:inline;
   font-weight: 600;
   font-size: 2.5em;
   flex-basis: 15%;
+}
+
+.title-info {
+  font-weight: 500;
 }
 
 /*.page-title > a {
