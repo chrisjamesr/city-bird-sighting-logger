@@ -12,7 +12,7 @@
       <a href="/sightings/new">Add New Sighting</a>
   </div>   
   <p class="title-info">
-    Member since: November 2017 | <span>Total Birds Sighted: 1</span>
+    Member since: <%=@user.display_date %><span> | Total Birds Sighted: <%= @user.birds.size %></span>
   </p>
 
   <h3>Sightings Log</h3> 
