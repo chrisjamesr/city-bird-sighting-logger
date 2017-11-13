@@ -54,7 +54,7 @@ nav {
 }
 
 .page-title > a {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .header-plus {
@@ -65,7 +65,12 @@ nav {
 }
 
 .title-info {
-  font-weight: 500;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.title-info > span {
+  color: #212529;
 }
 
 /*.page-title > a {
