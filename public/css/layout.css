@@ -61,13 +61,14 @@ nav {
 }
 
 .page-title > a {
-  font-weight: 600;
+  font-weight: 500;
   margin-left: 20px;
+  margin-bottom: 25px;
 }
 
 .header-plus {
   display:inline;
-  font-weight: 600;
+  font-weight: 550;
   font-size: 2.5em;
   flex-basis: 15%;
 }
@@ -96,12 +97,22 @@ nav {
   object-fit: cover;
 }
 
+.bird-display {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+.card {
+  /*display: inline-block;  */
+  width: 35%;
+  height:auto;
+}
 
 footer {
   text-align: right;
 }
-
-
 
 ul {
   list-style-type: none;
