@@ -57,13 +57,20 @@ nav {
 .page-title{
   display:flex;
   flex-direction: row;
-  align-items: baseline;
+  justify-content: space-between;
+  
 }
 
 .page-title > a {
   font-weight: 500;
   margin-left: 20px;
   margin-bottom: 25px;
+  
+}
+
+.page-title > form {
+  align-self: center
+  
 }
 
 .header-plus {
