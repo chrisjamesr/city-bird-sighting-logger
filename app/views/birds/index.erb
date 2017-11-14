@@ -11,11 +11,12 @@
   <% @birds.each do |bird| %>
 
     <div class="card">
-      <img class="card-img-top" src="<%=bird.image_url%>" alt="<%=bird.species %>">
+      <img class="card-img-top " src="<%=bird.image_url%>" alt="<%=bird.species %>">
       <div class="card-body">
         <h4 class="card-title"><%=bird.species%></h4>
-        <p class="card-text">Sightings: 0</p>
-        <a href="<%= bird.page_url %>" class="btn btn-primary">See More</a>
+        <p class="card-text">Sightings: <%=bird.sightings.size %></p>
+        <a href="/birds/<%= bird.id %>" class="btn btn-primary">See More</a>
+
       </div>
     </div>
   <%end%>
