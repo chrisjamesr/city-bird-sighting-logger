@@ -44,6 +44,7 @@ class SightingsController < ApplicationController
   end
 
   patch '/sightings/:id' do
+    binding.pry
     sighting = Sighting.find(params[:id])
     sighting.update(params[:sighting])
     sighting.bird = Bird.find_or_create_by(params[:bird])
@@ -62,6 +63,14 @@ class SightingsController < ApplicationController
       redirect "/users/#{@sighting.user_id}"
     else 
       redirect "/sightings"
+    end
+  end
+
+  helpers do
+    def revert_time
+      sighting = Sighting.find(params[:id])
+      t = DateTime.parse(sighting.time_date)
+      t.iso8601
     end
   end
  
