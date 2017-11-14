@@ -9,8 +9,9 @@
     </div>
     <div class="form-group">    
       <label for="sighting_time_date">Edit Time/Date:</label>
-      <input class="form-control" type="text" id=""sighting_time_date" name="sighting[time_date]" value ="<%=@sighting.time_date %>">
+      <input class="form-control" type="datetime-local" id="sighting_time_date" name="sighting[time_date]" value ="<%=revert_time%>">
     </div>
+    
     <div class="form-group">    
       <label for="bird_species">Edit Bird:</label>
       <input class="form-control" type="text" id="bird_species" name="bird[species]" value ="<%=@sighting.bird.species %>">
