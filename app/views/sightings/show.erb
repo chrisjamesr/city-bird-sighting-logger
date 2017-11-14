@@ -9,7 +9,19 @@
     <div class="header-plus">
       Sighting
     </div>
-      <a href="/sightings/new">Add New Sighting</a>
+      <form action="/sightings/new">
+        <input type="submit" class="btn btn-outline-primary" value="Add New Sighting">
+      </form>
+      <% if @sighting.user == current_user%>
+      <form action="/sightings/<%=@sighting.id %>/edit">
+        <input type="submit" class="btn btn-outline-primary" value="Edit Sighting">
+      </form>
+      <form action="/sightings/<%=@sighting.id%>/delete" method="POST">
+      <input type="hidden" id="hidden" name="_method" value ="DELETE">
+      <input type="submit" class="btn btn-outline-primary" value="Delete Sighting">
+    </form>
+
+  <% end %>
   </div>   
   <h><a href="/users/<%=@sighting.user.id%>"><%=@sighting.user.username.capitalize %></a> Spotted a 
     <a href="/birds/<%=@sighting.bird.id%>"><%=@sighting.bird.species%></a></h3>
@@ -25,12 +37,5 @@
     </article>
   </div>
 
-  <% if @sighting.user == current_user%>
-    <p><a href="/sightings/<%=@sighting.id %>/edit">Edit Event</a></p>
-    <p><form action="/sightings/<%=@sighting.id%>/delete" method="POST">
-      <input type="hidden" id="hidden" name="_method" value ="DELETE">
-      <input type="submit" value="Delete Event">
-    </form></p>
-
-  <% end %>
+  
 </div>
