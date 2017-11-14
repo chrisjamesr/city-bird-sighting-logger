@@ -106,8 +106,14 @@ nav {
 }
 .card {
   /*display: inline-block;  */
-  width: 35%;
+  width: 30%;
   height:auto;
+  margin: 15px 0 15px 0;
+}
+.card > img{
+  height: 180px;
+  width: auto;
+  object-fit: contain;
 }
 
 footer {
