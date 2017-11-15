@@ -5,7 +5,18 @@
     <div class="alert alert-success fade-out"><%= flash[:success] %></div>
   <% end %>
 
-  <h1><%=@bird.species %></h1>
+  <div class="page-title">
+    <div class="header-plus">
+      <h1><%=@bird.species %></h1>
+  </div>
+    <form action="/birds/<%=@bird.id%>/edit/">
+          <input type="submit" class="btn btn-outline-primary" value="Edit Bird">
+        </form>
+        <form action="/birds/<%=@bird.id%>/delete" method="post">
+          <input type="hidden" id="hidden" name="_method" value ="DELETE"> 
+          <input type="submit" class="btn btn-outline-primary" value="Delete">
+        </form>
+  </div>
   <article class="clearfix">
     <img class="main-image" src="<%=@bird.image_url %>" alt="This should be a picture of a(n) <%=@bird.species%>">
     <div class="summary"><%=@bird.summary_parse%>
@@ -24,6 +35,5 @@
 
 
   <!-- <h3>Additional information:</h3> -->
-
-  <a href="/birds/<%=@bird.id%>/edit">Edit</a>
+      
 </div>
