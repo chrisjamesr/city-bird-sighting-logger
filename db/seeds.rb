@@ -7,3 +7,12 @@ users = User.create([
   {username: "Chuck", password: "money"}
   ])
 
+birds = Bird.create([
+  {species: "Northern Cardinal"},
+  {species: "Tree Swallow"},
+  {species: "Common Tern"},
+  {species: "Red Tailed Hawk"},
+  {species: "Emperor Penguin"},
+  {species: "English Sparrow"},
+  {species: "Quaker Parrot"}
+  ])
