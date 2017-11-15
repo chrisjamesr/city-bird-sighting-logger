@@ -44,7 +44,6 @@ class SightingsController < ApplicationController
   end
 
   patch '/sightings/:id' do
-    binding.pry
     sighting = Sighting.find(params[:id])
     sighting.update(params[:sighting])
     sighting.bird = Bird.find_or_create_by(params[:bird])
