@@ -43,5 +43,16 @@ class BirdsController < ApplicationController
     end
   end  
 
+  delete '/birds/:id/delete' do
+    @bird = Bird.find(params[:id])
+    # if @sighting.user == current_user
+      @bird.destroy
+      flash[:success] = "Bird removed"
+      redirect "/birds"
+    # else 
+    #   redirect "/sightings"
+    # end
+  end
+
 
 end
