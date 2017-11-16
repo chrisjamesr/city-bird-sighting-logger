@@ -13,7 +13,6 @@ class BirdsController < ApplicationController
   end
 
   post '/birds/new' do
-    
     bird = Bird.new(params[:bird])
     if bird.save
       redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} added to the log" 
