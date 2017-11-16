@@ -24,6 +24,7 @@ header {
   position: relative;
   top: 7vh;
   max-width: 800px
+  margin-bottom:30px;
 }
 
 .banner{
