@@ -25,7 +25,7 @@
   </div>   
   <h><a href="/users/<%=@sighting.user.id%>"><%=@sighting.user.username.capitalize %></a> Spotted a 
     <a href="/birds/<%=@sighting.bird.id%>"><%=@sighting.bird.species%></a></h3>
-  <h3><%=@sighting.time_date%> - <%=@sighting.location %></h3>
+  <h3><%=Date.parse(@sighting.time_date).strftime('%A %B %e, %Y')%> - <%=@sighting.location %></h3>
   <p><%=@sighting.description %></p>
   <div>
     <%=@sighting.bird.species %>
