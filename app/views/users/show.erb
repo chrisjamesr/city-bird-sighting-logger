@@ -9,7 +9,11 @@
     <div class="header-plus">
       <%= @user.username.capitalize %>
     </div>
-      <a href="/sightings/new">Add New Sighting</a>
+      <% if @user == current_user %>
+      <form action="/sightings/new">
+        <input type="submit" class="btn btn-outline-primary" value="Add New Sighting">
+      </form>
+      <% end %> 
   </div>   
   <p class="title-info">
     Member since: <%=@user.display_date %><span> | Total Birds Sighted: <%= @user.birds.size %></span>
