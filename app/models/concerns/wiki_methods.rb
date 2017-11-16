@@ -3,7 +3,9 @@ module Wiki
   module InstanceMethods
 
     def set_wiki_info
-      self.update(summary: summary, image_url: main_image_url)
+      if !self.species.nil?
+        self.update(summary: summary, image_url: main_image_url)
+      end
     end  
 
     def wiki_scrape
