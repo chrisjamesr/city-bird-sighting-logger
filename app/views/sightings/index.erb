@@ -8,8 +8,11 @@
 
 
   <ul class="list-group">
-  <% @sightings.each do |sighting| %>
-    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="/sightings/<%=sighting.id%>"><%=sighting.location%> - <%=sighting.time_date%></a><a href="/birds/<%=sighting.bird.id%>"><%=sighting.bird.species%></a></li>
-  <%end %>  
+    <% @sightings.each do |sighting| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/sightings/<%= sighting.id %>"><%= sighting.location %> - <%= sighting.time_date %></a>
+        <a href="/birds/<%= sighting.bird.id %>"><%= sighting.bird.species %></a>
+      </li>
+    <% end %>  
   </ul> 
 </div>  
