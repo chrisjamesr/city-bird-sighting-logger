@@ -9,8 +9,10 @@ belongs_to :user
   def display_time
     if !self.time_date.empty?
       time_date = DateTime.parse(self.time_date)
-      self.time_date = time_date.strftime('%A %B %e, %Y | %l:%m%p')
+      self.time_date = time_date.strftime('%m-%d-%Y')
     end  
   end
 
 end
+
+# self.time_date = time_date.strftime('%A %B %e, %Y | %l:%m%p')
