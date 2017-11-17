@@ -78,7 +78,7 @@ nav {
   display:inline;
   font-weight: 550;
   font-size: 2.5em;
-  flex-basis: 15%;
+  /*flex-basis: 15%;*/
 }
 
 .title-info {
