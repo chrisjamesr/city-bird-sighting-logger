@@ -5,8 +5,7 @@ module Wiki
     def set_wiki_info
       if !self.species.nil?
         self.summary = summary
-        self.image_url =  main_image_url
-        self.save 
+        self.image_url =  main_image_url 
       end
     end  
 
