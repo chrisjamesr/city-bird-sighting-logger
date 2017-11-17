@@ -2,9 +2,11 @@ module Wiki
 
   module InstanceMethods
 
-    def get_wiki_info
+    def set_wiki_info
       if !self.species.nil?
-        self.update(summary: summary, image_url: main_image_url)
+        self.summary = summary
+        self.image_url =  main_image_url
+        self.save 
       end
     end  
 
