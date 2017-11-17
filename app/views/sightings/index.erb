@@ -4,7 +4,16 @@
   <% elsif flash.has?(:success) %>
     <div class="alert alert-success fade-out"><%= flash[:success] %></div>
   <% end %>
-  <h1>User Log Entries</h1>
+  <div class="page-title">
+    <div class="header-plus">
+      User Log Entries
+    </div>  
+    <div>
+      <form action="/sightings/new">
+          <input type="submit" class="btn btn-outline-primary" value="Add New Sighting">
+      </form>
+    </div>  
+    </div>
 
 
   <ul class="list-group">
