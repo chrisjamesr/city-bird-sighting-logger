@@ -1,13 +1,21 @@
-<h1>Add a New Bird to the Index</h1>
 
-<form action="/birds/new" method ="POST">
-  <p><label for="species">Bird Species:</label>
-  <input type="text" name="bird[species]" id ="species"></p>
+  <% if flash.has?(:error) %>
+      <div class="alert alert-danger fade-out"><%= flash[:error] %></div>
+    <% elsif flash.has?(:success) %>
+      <div class="alert alert-success fade-out"><%= flash[:success] %></div>
+    <% end %> 
+<div class="container">
+<div class="header-plus">Add a New Bird to the Index</div>
 
- <!--  <p><label for="bird_image">Bird image URL (optional):</label>
-  <input type="url" name="image_url" id ="bird_image"></p>
-  <%# image_url to be renamed bird[image_url] once url column is added%>
-  <input type="submit" value="Create Bird"> -->
+  <form action="/birds/new" method ="POST">
+    <p><label for="species">Bird Species:</label>
+    <input type="text" name="bird[species]" id ="species"></p>
+
+   <!--  <p><label for="bird_image">Bird image URL (optional):</label>
+    <input type="url" name="image_url" id ="bird_image"></p>
+    <%# image_url to be renamed bird[image_url] once url column is added%>-->
+    <input type="submit" class="btn btn-outline-primary" value="Create Bird"> 
 
 
-</form>
+  </form>
+</div>
