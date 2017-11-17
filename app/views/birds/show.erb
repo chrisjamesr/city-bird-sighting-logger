@@ -9,7 +9,7 @@
     <div class="header-plus">
       <h1><%=@bird.species %></h1>
   </div>
-    <form action="/birds/<%=@bird.id%>/edit/">
+    <form action="/birds/<%=@bird.id%>/edit">
           <input type="submit" class="btn btn-outline-primary" value="Edit Bird">
         </form>
         <form action="/birds/<%=@bird.id%>/delete" method="post">
