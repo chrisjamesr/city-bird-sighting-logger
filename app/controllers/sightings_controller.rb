@@ -71,3 +71,10 @@ class SightingsController < ApplicationController
   end
  
 end  #  End of Class
+
+
+#Fixes 
+# 1. Update all route to use the authenticate! method
+# 2. Update sightings patch route to make sure that it is the owner of the sightings 
+# 3. Remove all usage of @user = User.find_by(id: session[:user_id]) except for the current_user method in application controller
+# 4. Send pull request @lukeghenco
