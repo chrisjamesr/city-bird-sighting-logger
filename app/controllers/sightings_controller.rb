@@ -32,8 +32,7 @@ class SightingsController < ApplicationController
   get '/sightings/:id/edit' do
     authenticate!
     @sighting = Sighting.find(params[:id])
-    @user = User.find(session[:user_id])
-    if current_user == @user
+    if current_user == @sighting.user
       erb :'/sightings/edit'
     else
       redirect "/sightings/#{@sighting.id}"
@@ -41,6 +40,7 @@ class SightingsController < ApplicationController
   end
 
   patch '/sightings/:id' do
+    authenticate!
     sighting = Sighting.find(params[:id])
     sighting.update(params[:sighting])
     sighting.bird = Bird.find_or_create_by(params[:bird])
@@ -52,8 +52,9 @@ class SightingsController < ApplicationController
   end
 
   delete '/sightings/:id/delete' do
+    authenticate!
     @sighting = Sighting.find(params[:id])
-    if @sighting.user == current_user
+    if current_user == @sighting.user
       @sighting.destroy
       flash[:success] = "Sighting removed"
       redirect "/users/#{@sighting.user_id}"
