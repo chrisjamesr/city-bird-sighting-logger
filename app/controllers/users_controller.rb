@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   # use Rack::Flash
   get '/signup' do
     if logged_in?
-      user = User.find(session[:user_id])
-      redirect "/users/#{user.id}"
+      # user = User.find(session[:user_id])
+      redirect "/users/#{current_user.id}"
     else  
       erb :'/users/create_user'
     end  
@@ -21,8 +21,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      user = User.find(session[:user_id])
-      redirect "/users/#{user.id}", flash[:error] = "Already signed in as #{user.username}"
+      redirect "/users/#{current_user.id}", flash[:error] = "Already signed in as #{user.username}"
     else  
       erb :'/users/login' 
     end
@@ -55,12 +54,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # unnecessary
-  get '/users/:id/edit' do
-    @user = User.find(params[:id])
-    redirect "/users/#{@user.id}", flash[:error] = "That function is not currently available"
-    # erb :'/users/edit'
-  end  
+  # # unnecessary
+  # get '/users/:id/edit' do
+  #   @user = User.find(params[:id])
+  #   redirect "/users/#{@user.id}", flash[:error] = "That function is not currently available"
+  #   # erb :'/users/edit'
+  # end  
 
   # patch '/users/:id/edit' do
   #   user = User.find_by(username: user[:username])
