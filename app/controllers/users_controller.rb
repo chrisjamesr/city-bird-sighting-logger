@@ -54,26 +54,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # # unnecessary
-  # get '/users/:id/edit' do
-  #   @user = User.find(params[:id])
-  #   redirect "/users/#{@user.id}", flash[:error] = "That function is not currently available"
-  #   # erb :'/users/edit'
-  # end  
-
-  # patch '/users/:id/edit' do
-  #   user = User.find_by(username: user[:username])
-  #   if user && user.authenticate(params[:password])
-
-  #   redirect '/users'
-  # end  
-# set layout for view
-  # get "/foo" do
-  #  erb :index, :layout => :nameofyourlayoutfile
-  # end 
-
-
-
   get '/logout' do
     if logged_in?
       session.clear
