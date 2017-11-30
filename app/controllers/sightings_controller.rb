@@ -8,29 +8,26 @@ class SightingsController < ApplicationController
 
   get '/sightings/new' do
     authenticate!
-    @user = User.find(session[:user_id])
     erb :'sightings/new'
   end
 
   get '/sightings/:id' do
     authenticate!
-    # @user = User.find(session[:user_id])
     @sighting = Sighting.find(params[:id])
     erb :'sightings/show'
   end
 
   post '/sightings' do
+    authenticate!
     sighting = Sighting.new(params[:sighting])
-    sighting.user = User.find(session[:user_id])
+    sighting.user = current_user
     sighting.bird = Bird.find_or_create_by(params[:bird])
     if sighting.save 
       redirect "/sightings/#{sighting.id}", flash[:success] = "Sighting added successfully" 
     else
       redirect "/users/#{sighting.user.id}", flash[:error] = sighting.errors.full_messages.to_sentence
     end
-
   end
-
 
   get '/sightings/:id/edit' do
     authenticate!
