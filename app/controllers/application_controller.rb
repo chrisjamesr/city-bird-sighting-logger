@@ -13,23 +13,28 @@ class ApplicationController < Sinatra::Base
   
 
   get '/' do
-    erb :root, layout: :root_layout
+    if logged_in? 
+      redirect "/users/#{current_user.id}"
+    else
+      erb :root, layout: :root_layout
+    end
   end
 
   
   helpers do
     def logged_in?
-      !!session[:user_id]
+      !!current_user
     end
 
     def authenticate!
-      unless session[:user_id]
+      unless logged_in?
         redirect '/'
       end
     end
       
-    def current_user
-      User.find(session[:user_id])
+    def current_user #=> User Instance || nil
+      # memoization
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
 
     Sinatra::RedirectWithFlash

@@ -13,6 +13,7 @@ class BirdsController < ApplicationController
   end
 
   post '/birds/new' do
+    authenticate!
     bird = Bird.new(params[:bird])
     if bird.save
       redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} added to the log" 
@@ -34,6 +35,7 @@ class BirdsController < ApplicationController
   end
 
   patch '/birds/:id' do
+    authenticate!
     bird = Bird.find(params[:id])
     if bird.update(params[:bird])
       redirect "/birds/#{bird.id}", flash[:success] = "#{bird.species.capitalize} Updated"
@@ -43,8 +45,8 @@ class BirdsController < ApplicationController
   end  
 
   delete '/birds/:id/delete' do
+    authenticate!
     @bird = Bird.find(params[:id])
-    # if @sighting.user == current_user
       @bird.destroy
       flash[:success] = "Bird removed"
       redirect "/birds"
