@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # add avatar to database
   def signed_up
-   self.update(member_since: Time.current)
+   self.member_since = Time.current
   end
 
   def display_date
