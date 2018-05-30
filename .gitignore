@@ -1,5 +1,5 @@
  !/*.DS_Store
 /public/.DS_Store
-/Gemfile.lock
+# /Gemfile.lock
 /db/development.sqlite
 .DS_Store
