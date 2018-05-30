@@ -2,3 +2,4 @@
 /public/.DS_Store
 /Gemfile.lock
 /db/development.sqlite
+.DS_Store
