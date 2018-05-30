@@ -1,4 +1,6 @@
-require 'wikipedia'
+# require 'wikipedia'
+require_relative './concerns/wiki.rb'
+
 
 class Bird < ActiveRecord::Base
   extend Wiki::ClassMethods

@@ -1,3 +1,4 @@
+require 'wikipedia'
 module Wiki
 
   module InstanceMethods
