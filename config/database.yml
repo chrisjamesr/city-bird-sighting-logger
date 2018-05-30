@@ -7,6 +7,7 @@ development:
 
 production:
   url: <=% ENV['DATABASE_URL'] %>
+  database: <=% ENV['DATABASE_NAME'] %>
   adapter: postgresql
   database: mydb
   host: localhost
