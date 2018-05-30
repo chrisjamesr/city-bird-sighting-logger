@@ -1,4 +1,4 @@
-require './config/environment'
+require './config/'
 
 use Rack::Static, :urls => ['/css'], :root => 'public' # Rack fix allows seeing the css folder.
 
