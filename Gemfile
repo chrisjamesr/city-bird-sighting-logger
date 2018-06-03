@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'pg'
-gem 'sqlite.giti3'
+gem 'sqlite3'
 gem 'tux',:group => :development
 gem 'shotgun', :group => :development
 gem 'pry', :group => :development
