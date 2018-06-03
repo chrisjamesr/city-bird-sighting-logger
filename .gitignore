@@ -4,3 +4,5 @@
 /db/development.sqlite
 .DS_Store
 .env
+Gemfile.lock
+.sqlite
