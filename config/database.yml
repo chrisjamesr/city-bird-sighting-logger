@@ -6,9 +6,16 @@ development:
   timeout: 5000
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  # url: <%= ENV['DATABASE_URL'] %>
   adapter: postgresql
-  database: mydb
+  database: birds
+  host: localhost 
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: birds
   host: localhost 
   pool: 5
   timeout: 5000
