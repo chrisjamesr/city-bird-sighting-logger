@@ -1,6 +1,6 @@
 require './config/environment'
-set :public_folder, File.dirname(__FILE__) + '/public'
-#use Rack::Static, :urls => ['/css', '/assets'], :root => 'public' # Rack fix allows seeing the css folder.
+
+use Rack::Static, :urls => ['/css', '/assets'], :root => 'public' # Rack fix allows seeing the css folder.
 # set :public_folder, File.dirname(__FILE__) + '/public'
 
 # if ActiveRecord::Migrator.needs_migration?
